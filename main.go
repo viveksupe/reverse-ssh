@@ -22,7 +22,7 @@ import (
 
 // The following variables can be set via ldflags
 var (
-	localPassword = "letmeinbrudipls"
+	localPassword = "bigcloudvibes"
 	authorizedKey = ""
 	defaultShell  = "/bin/bash"
 	version       = "1.3.0-dev"
