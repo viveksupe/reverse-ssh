@@ -31,11 +31,13 @@ endif
 
 .PHONY: build
 build: clean
-	CGO_ENABLED=0 					go build -ldflags="$(LDFLAGS) -s -w" -o bin/ .
-	CGO_ENABLED=0 GOARCH=amd64	GOOS=linux	go build -ldflags="$(LDFLAGS) -s -w" -o bin/reverse-sshx64 .
-	CGO_ENABLED=0 GOARCH=386	GOOS=linux	go build -ldflags="$(LDFLAGS) -s -w" -o bin/reverse-sshx86 .
-	CGO_ENABLED=0 GOARCH=amd64	GOOS=windows	go build -ldflags="$(LDFLAGS) -s -w" -o bin/reverse-sshx64.exe .
-	CGO_ENABLED=0 GOARCH=386	GOOS=windows	go build -ldflags="$(LDFLAGS) -s -w" -o bin/reverse-sshx86.exe .
+	CGO_ENABLED=0 					go build -ldflags="$(LDFLAGS) -s -w" -o bin/rssh .
+	CGO_ENABLED=0 GOARCH=amd64	GOOS=linux	go build -ldflags="$(LDFLAGS) -s -w" -o bin/rsshx64 .
+	CGO_ENABLED=0 GOARCH=386	GOOS=linux	go build -ldflags="$(LDFLAGS) -s -w" -o bin/rsshx86 .
+	CGO_ENABLED=0 GOARCH=arm64	GOOS=linux	go build -ldflags="$(LDFLAGS) -s -w" -o bin/rssh_a64 .
+	CGO_ENABLED=0 GOARCH=amd64	GOOS=windows	go build -ldflags="$(LDFLAGS) -s -w" -o bin/rsshx64.exe .
+	CGO_ENABLED=0 GOARCH=amd64	GOOS=windows	go build -ldflags="$(LDFLAGS) -s -w" -o bin/rsshx64.exe .
+	CGO_ENABLED=0 GOARCH=arm64	GOOS=windows	go build -ldflags="$(LDFLAGS) -s -w" -o bin/rssh_a64.exe .
 
 .PHONY: clean
 clean:
